@@ -110,9 +110,10 @@ To prevent deployment payload size errors caused by local virtual environments (
    ```bash
    mkdir -p /tmp/weather_deploy
    ```
-2. Copy the necessary agent files:
+2. Copy the necessary agent files and enable Agent Identity:
    ```bash
    cp agent.py requirements.txt __init__.py /tmp/weather_deploy/
+   echo '{ "identity_type": "AGENT_IDENTITY" }' > /tmp/weather_deploy/.agent_engine_config.json
    ```
 3. Deploy the agent from the staging directory using the ADK CLI:
    ```bash
