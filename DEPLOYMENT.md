@@ -55,11 +55,17 @@ You must grant the following IAM roles to the default Compute service account (`
 
 ### Step 1: Deploy the FastMCP Server to Cloud Run
 
-1. **Navigate to your FastMCP Server source directory** in your terminal. This is the folder containing the `main.py` file, the `Dockerfile`, and the `requirements.txt` for the Weather Server:
+1. **Clone the FastMCP Server repository** to download the server code locally:
    ```bash
-   cd path/to/cr_mcp_weather
+   git clone https://github.com/demichael4520/cr_mcp_weather
    ```
-2. Deploy to Cloud Run using the following command:
+
+2. **Navigate to the cloned FastMCP Server directory** (referred to as `path/to/cr_mcp_weather` throughout this guide):
+   ```bash
+   cd cr_mcp_weather
+   ```
+
+3. **Deploy to Cloud Run** using the following command:
    ```bash
    gcloud run deploy mcp-weather-server \
      --source . \
@@ -67,7 +73,8 @@ You must grant the following IAM roles to the default Compute service account (`
      --allow-unauthenticated \
      --project=YOUR_PROJECT_ID
    ```
-3. Once successfully deployed, copy the **Service URL** from the command output (e.g. `https://mcp-weather-server-xxxxx.us-central1.run.app`).
+
+4. **Obtain the Service URL**: Once successfully deployed, copy the **Service URL** from the command output (e.g. `https://mcp-weather-server-xxxxx.us-central1.run.app`).
 
 ---
 
