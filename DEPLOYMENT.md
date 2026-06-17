@@ -1,6 +1,6 @@
-# Model Context Protocol (MCP) & Vertex AI Agent Engine Deployment Guide
+# Model Context Protocol (MCP) & Vertex AI Agent Runtime Deployment Guide
 
-This guide outlines the step-by-step workflow and critical IAM permissions required to deploy a **Cloud Run FastMCP Weather Server** and its corresponding **Vertex AI Agent Engine (Reasoning Engine) Client Agent**.
+This guide outlines the step-by-step workflow and critical IAM permissions required to deploy a **Cloud Run FastMCP Weather Server** and its corresponding **Vertex AI Agent Runtime Client Agent**.
 
 ---
 
@@ -9,9 +9,9 @@ The deployments must be executed in a strict sequential order:
 1. **First, deploy the Cloud Run FastMCP Server.**
 2. **Obtain the generated Cloud Run Service URI.**
 3. **Update the Client Agent's configuration (`agent.py`) with the obtained Streamable HTTP URL.**
-4. **Finally, deploy the Client Agent to Vertex AI Agent Engine.**
+4. **Finally, deploy the Client Agent to Vertex AI Agent Runtime.**
 
-The Agent Engine Client *cannot* function or be successfully deployed without the final, live endpoint of the MCP Server.
+The Agent Runtime Client *cannot* function or be successfully deployed without the final, live endpoint of the MCP Server.
 
 ---
 
@@ -97,7 +97,7 @@ You must grant the following IAM roles to the default Compute service account (`
 
 ---
 
-### Step 3: Deploy the Client Agent to Vertex AI Agent Engine
+### Step 3: Deploy the Client Agent to Vertex AI Agent Runtime
 
 With the modular folder structure, `agent_runtime` is isolated from the root virtual environment (`venv`). You can deploy directly from this directory:
 
@@ -116,7 +116,7 @@ adk deploy agent_engine \
 ### 1. Verification via Agent Runtime Playground (Console)
 
 You can test the agent interactively via the Google Cloud Console:
-1. Open the [Vertex AI Agent Engine Console](https://console.cloud.google.com/vertex-ai/agent-engine).
+1. Open the [Vertex AI Agent Runtime Console](https://console.cloud.google.com/vertex-ai/agent-engine).
 2. Click on your deployed **MCP Weather Client** agent.
 3. Switch to the **Playground** test interface.
 4. Send a test prompt:
